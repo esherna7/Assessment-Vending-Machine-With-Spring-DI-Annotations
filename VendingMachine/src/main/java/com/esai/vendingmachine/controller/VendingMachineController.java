@@ -9,11 +9,14 @@ import com.esai.vendingmachine.service.VendingMachineServiceLayer;
 import com.esai.vendingmachine.service.VendingMachineServiceLayerImpl;
 import com.esai.vendingmachine.ui.VendingMachineView;
 import java.math.BigDecimal;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author Esai
  */
+@Component
 public class VendingMachineController {
 
     // handles ui and user interaction
@@ -22,6 +25,7 @@ public class VendingMachineController {
     private VendingMachineServiceLayer service;
 
     // constructor assigning view and service
+    @Autowired
     public VendingMachineController(VendingMachineView view, VendingMachineServiceLayer service){
         this.view = view;
         this.service = service;

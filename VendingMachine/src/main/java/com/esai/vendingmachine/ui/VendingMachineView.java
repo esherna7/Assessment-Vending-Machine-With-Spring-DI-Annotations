@@ -3,11 +3,14 @@ package com.esai.vendingmachine.ui;
 import com.esai.vendingmachine.dto.Change;
 import com.esai.vendingmachine.dto.VendingMachineProduct;
 import java.util.ArrayList;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author Esai
  */
+@Component
 public class VendingMachineView {
 
     // handles print messages
@@ -16,6 +19,7 @@ public class VendingMachineView {
     private static int productIndex;
 
     // constructor assign io
+    @Autowired
     public VendingMachineView(UserIO io){
         this.io = io;
     }

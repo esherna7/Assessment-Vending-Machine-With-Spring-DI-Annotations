@@ -14,20 +14,29 @@ import com.esai.vendingmachine.service.VendingMachineServiceLayerImpl;
 import com.esai.vendingmachine.ui.UserIO;
 import com.esai.vendingmachine.ui.UserIOConsoleImpl;
 import com.esai.vendingmachine.ui.VendingMachineView;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
  *
  * @author Esai
  */
 public class App {
-    
-    public static void main(String[] args) throws InsufficientFundsException, NoItemInventoryException, ClassVendingMachineDaoException, ClassVendingMachinePersistenceException{
-        UserIO myIO = new UserIOConsoleImpl();
+
+    public static void main(String[] args) throws InsufficientFundsException, NoItemInventoryException, ClassVendingMachineDaoException, ClassVendingMachinePersistenceException {
+        /*UserIO myIO = new UserIOConsoleImpl();
         VendingMachineView myView = new VendingMachineView(myIO);
         VendingMachineDao myDao = new VendingMachineDaoFileImpl();
         ClassVendingMachineAuditDao myAuditDao = new ClassVendingMachineAuditDaoFileImpl();
         VendingMachineServiceLayer myService = new VendingMachineServiceLayerImpl(myDao, myAuditDao);
         VendingMachineController controller = new VendingMachineController(myView, myService);
+        controller.run();
+         */
+
+        AnnotationConfigApplicationContext appContext = new AnnotationConfigApplicationContext();
+        appContext.scan("com.esai.vendingmachine");
+        appContext.refresh();
+
+        VendingMachineController controller = appContext.getBean("vendingMachineController", VendingMachineController.class);
         controller.run();
     }
 }

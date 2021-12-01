@@ -9,11 +9,14 @@ import com.esai.vendingmachine.dto.Change;
 import com.esai.vendingmachine.dto.VendingMachineProduct;
 import java.math.BigDecimal;
 import java.util.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author Esai
  */
+@Component
 public class VendingMachineServiceLayerImpl implements VendingMachineServiceLayer {
 
     // allow access to doa
@@ -22,6 +25,7 @@ public class VendingMachineServiceLayerImpl implements VendingMachineServiceLaye
     private ClassVendingMachineAuditDao auditDao;
 
     // constructor assigning dao and auditdao
+    @Autowired
     public VendingMachineServiceLayerImpl(VendingMachineDao dao, ClassVendingMachineAuditDao auditDao){
         this.dao = dao;
         this.auditDao = auditDao;

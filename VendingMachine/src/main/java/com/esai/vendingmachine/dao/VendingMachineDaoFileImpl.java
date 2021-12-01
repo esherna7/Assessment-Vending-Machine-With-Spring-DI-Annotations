@@ -5,11 +5,13 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.*;
 import java.io.*;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author Esai
  */
+@Component
 public class VendingMachineDaoFileImpl implements VendingMachineDao {
 
     // holds vendingmachine.txt

@@ -2,11 +2,13 @@ package com.esai.vendingmachine.dao;
 
 import java.io.*;
 import java.time.LocalDateTime;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author Esai
  */
+@Component
 public class ClassVendingMachineAuditDaoFileImpl implements ClassVendingMachineAuditDao {
 
     public static final String AUDIT_FILE = "audit.txt";
